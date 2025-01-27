@@ -8,6 +8,8 @@
         public string Breed { get; set; } = null!;
         public int Age { get; set; }
         public int Weight { get; set; }
+        public IFormFile Image { get; set; } = null!;
+
 
     }
 }

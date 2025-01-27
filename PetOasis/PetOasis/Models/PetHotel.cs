@@ -2,17 +2,20 @@
 {
     public class PetHotel
     {
-        public string? Street { get; set; }
+        public string Name { get; set; } = null!;
 
-        public string Street_Number { get; set; }
+        public string City {  get; set; } = null!;
+        public string Street { get; set; } = null!;
 
-        public IFormFile Outside_View { get; set; }
+        public string Street_Number { get; set; } = null!;
 
-        public string Phone { get; set; }
+        public IFormFile Outside_View { get; set; } = null!;
 
-        public string Email { get; set; }
+        public string Phone { get; set; } = null!;
 
-        public string Description { get; set; }
+        public string Email { get; set; } = null!;
+
+        public string Description { get; set; } = null!;
     }
 }
 

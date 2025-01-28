@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetOasis.Models
 {
@@ -8,6 +9,7 @@ namespace PetOasis.Models
         cat,
         bird
     }
+    [Table("Pet", Schema ="blg")]
     public class Pet
     {
         [Key]

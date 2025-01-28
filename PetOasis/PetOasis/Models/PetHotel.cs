@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetOasis.Models
 {
+    [Table("PetHotel", Schema = "blg")]
     public class PetHotel
     {
 

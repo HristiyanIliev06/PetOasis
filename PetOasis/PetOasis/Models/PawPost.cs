@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetOasis.Models
 {
+    [Table("PawPost", Schema = "blg")]
     public class PawPost
-    {
+    {  
         [Key]
         public int Id { get; set; }
         [Required]

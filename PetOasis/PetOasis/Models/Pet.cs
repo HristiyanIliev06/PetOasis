@@ -40,6 +40,7 @@ namespace PetOasis.Models
         public double Weight { get; set; }
 
         public IFormFile? Image { get; set; }
+        public User Owner { get; set; } = null!;
 
 
     }

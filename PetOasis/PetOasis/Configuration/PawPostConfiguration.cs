@@ -9,7 +9,7 @@ namespace PetOasis.Configuration
         public void Configure(EntityTypeBuilder<PawPost> builder)
         {
             builder
-                .Property(e => e.Additional_mentions)
+                .Property(e => e.When_uploaded)
                 .ValueGeneratedOnAddOrUpdate();
         }
     }

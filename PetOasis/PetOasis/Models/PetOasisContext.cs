@@ -13,12 +13,13 @@ namespace PetOasis.Models
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            builder.ApplyConfiguration(new ShelterConfiguration());
+            builder.ApplyConfiguration(new PawPostConfiguration());
             base.OnModelCreating(builder);
         }
         public DbSet<PawPost> PawPosts { get; set; }
         public DbSet<Pet> Pets { get; set; }
         public DbSet<PetHotel> PetHotels { get; set; }
-
+        public DbSet<Shelter> Shelters { get; set; }
     }
 }

@@ -1,0 +1,34 @@
+﻿# Build directories
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Core local settings (files with sensitive data)
+appsettings.Development.json
+appsettings.Local.json
+appsettings.Secrets.json
+
+# Visual Studio specific folders and files
+.vs/
+*.vssscc
+*_i.c
+*_p.c
+*_h.h
+
+# NuGet Packages and caches
+*.nupkg
+packages/
+.nuget/
+
+# Backup & log files
+*.bak
+*.backup
+*.log
+
+# Node modules (if your project uses npm)
+node_modules/

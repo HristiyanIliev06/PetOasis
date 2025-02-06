@@ -36,6 +36,7 @@ namespace PetOasis.Models
         public string Email { get; set; } = null!;
 
         public string? Description { get; set; }
+        public List<Shelter> Shelters { get; set; } = new List<Shelter>();
 
         public override string ToString()
         {

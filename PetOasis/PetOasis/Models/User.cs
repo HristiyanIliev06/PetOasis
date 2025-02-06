@@ -22,6 +22,7 @@ namespace PetOasis.Models
         [ServiceStack.DataAnnotations.Unique]
         [MaxLength(100)]
         public override string? Email { get => base.Email; set => base.Email = value; }
+        public List<Pet> Pets { get; set; }=new List<Pet>();
 
         public override string ToString()
         {

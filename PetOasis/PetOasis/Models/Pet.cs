@@ -41,6 +41,9 @@ namespace PetOasis.Models
 
         public IFormFile? Image { get; set; }
         public User Owner { get; set; } = null!;
+        public string OwnerId { get; set; } = null!;
+
+        public List<Shelter> Shelters { get; set; } = new List<Shelter>();
 
 
     }

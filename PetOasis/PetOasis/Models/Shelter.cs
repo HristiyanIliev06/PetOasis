@@ -12,7 +12,5 @@ namespace PetOasis.Models
             public int PetId { get; set; }
             [ForeignKey(nameof(PetId))]
             public Pet Pet { get; set; } = null!;
-            public List<Shelter> Shelters { get; set; } = new List<Shelter>();
-        
     }
 }

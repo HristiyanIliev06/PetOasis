@@ -4,16 +4,16 @@ using PetOasis.Models;
 
 namespace PetOasis.Configuration
 {
-    public class PawPostConfigurationpublic : IEntityTypeConfiguration<PawPost>
+    public class PawPostConfiguration : IEntityTypeConfiguration<PawPost>
     {
         public void Configure(EntityTypeBuilder<PawPost> builder)
         {
             builder
-                .Property(e => e.Additional_mentions)
+                .Property(e => e.When_uploaded)
                 .ValueGeneratedOnAddOrUpdate();
         }
     }
 
 }
-    
+
 

@@ -12,7 +12,7 @@ namespace PetOasis.Models
         [MaxLength(20)]
         public string Title { get; set; } = null!;
         public string? Description { get; set; }
-        public IFormFile? Image { get; set; }
+        
         public DateTime? When_uploaded {  get; set; }
         public string? Additional_mentions {  get; set; }
 

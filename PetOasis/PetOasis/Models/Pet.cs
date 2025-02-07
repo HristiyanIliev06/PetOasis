@@ -39,7 +39,7 @@ namespace PetOasis.Models
         [Display(Name = "Weight (kg): ", Prompt = "My pet weighs...")]
         public double Weight { get; set; }
 
-        public IFormFile? Image { get; set; }
+       
         public User Owner { get; set; } = null!;
         public string OwnerId { get; set; } = null!;
 

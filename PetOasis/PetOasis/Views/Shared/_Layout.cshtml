@@ -1,31 +1,4 @@
-﻿<!--<header>
-       <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-           <div class="container-fluid">
-               <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PetOasis</a>
-               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                       aria-expanded="false" aria-label="Toggle navigation">
-                   <span class="navbar-toggler-icon"></span>
-               </button>
-               <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                   <ul class="navbar-nav flex-grow-1">
-                       <li class="nav-item">
-                           <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                       </li>
-                       <li class="nav-item">
-                           <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                       </li>
-                   </ul>
-               </div>
-           </div>
-       </nav>
-   </header>-->
-<!--<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - PetOasis - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>-->
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -34,30 +7,43 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PetOasis.styles.css" asp-append-version="true" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-      <div class="logo">
-        <img src="media/imagery/logo.png" alt="Pet Oasis Logo" />
-      </div>
-      <nav class="nav">
-        <ul>
-          <li><a href="base.html">Home</a></li>
-          <li><a href="facilities_home.html">Facilities</a></li>
-          <li><a href="pawposts.html">Blog and News</a></li>
-          <li><a href="about_us.html">About Us</a></li>
-        </ul>
-      </nav>
-      <div class="search-and-login">
-        <input type="text" placeholder="Search..." />
-
-        <button>
-          <a href="register.html">Register</a>
-        </button>
-      </div>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PetOasis</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Index page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="PawPosts" asp-action="Index">PawPosts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pets" asp-action="Index">Pets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="PetHotels" asp-action="Index">PetHotels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Shelters" asp-action="Index">Shelters</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Create">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy page</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -65,55 +51,11 @@
         </main>
     </div>
 
-    
-    <footer class="footer">
-        <div class="footer-container">
-            <!-- Left Section -->
-            <div class="footer-left">
-                <img src="media/imagery/logo.png"
-                     alt="Pet Oasis Logo"
-                     class="footer-logo" />
-                <p>Care for every paw,<br />home for every soul</p>
-                <div class="social-icons">
-                    <a href="#facebook">
-                        <img src="facebook-icon.png" alt="Facebook" />
-                    </a>
-                    <a href="#instagram">
-                        <img src="instagram-icon.png" alt="Instagram" />
-                    </a>
-                    <a href="#email"><img src="email-icon.png" alt="Email" /></a>
-                    <a href="#website"><img src="web-icon.png" alt="Website" /></a>
-                </div>
-                <p> 2024 PetOasis.com.<br />All rights reserved.</p>
-            </div>
-
-            <!-- Map Section -->
-            <div class="footer-map">
-                <img src="bulgaria-map.png" alt="Map of Bulgaria" />
-            </div>
-
-            <!-- Right Section -->
-            <div class="footer-right">
-                <div class="email-bulletin">
-                    <h4>Email bulletins</h4>
-                    <form>
-                        <input type="email" placeholder="Your email" required />
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
-                <nav class="footer-links">
-                    <a href="#facilities">Facilities</a>
-                    <a href="#about">About us</a>
-                    <a href="#blog">Blog</a>
-                </nav>
-                <div class="terms">
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Service</a>
-                </div>
-            </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - PetOasis - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <!--<script src="static/js/nav.js"></script>-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

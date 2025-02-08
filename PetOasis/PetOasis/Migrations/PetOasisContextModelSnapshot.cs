@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetOasis.Data;
 
-
 #nullable disable
 
 namespace PetOasis.Migrations

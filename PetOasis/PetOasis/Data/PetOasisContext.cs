@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using PetOasis.Models;
 using System.Reflection;
 
-namespace PetOasis.Models
+namespace PetOasis.Data
 {
     public class PetOasisContext : IdentityDbContext<User>
     {
@@ -35,7 +36,7 @@ namespace PetOasis.Models
                 .HasOne(p => p.Owner)
                 .WithMany(u => u.Pets)
                 .HasForeignKey(p => p.OwnerId);
-           
+
 
 
         }

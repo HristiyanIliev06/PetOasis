@@ -26,7 +26,7 @@ namespace PetOasis.Models
 
         public override string ToString()
         {
-            return base.Email;
+            return base.Email=null!;
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using PetOasis.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PetOasis.Models
+namespace PetOasis.Data.Entities
 {
     [Table("User", Schema = "blg")]
-    public class User :IdentityUser
+    public class User : IdentityUser
     {
         [MaxLength(30)]
         [Required]
@@ -17,16 +18,16 @@ namespace PetOasis.Models
         [Range(18, double.MaxValue, ErrorMessage = "Sorry! You are not mature enough to use our pet services!")]
         public int Age { get; set; }
 
-       
+
 
         [ServiceStack.DataAnnotations.Unique]
         [MaxLength(100)]
         public override string? Email { get => base.Email; set => base.Email = value; }
-        public List<Pet> Pets { get; set; }=new List<Pet>();
+        public List<Pet> Pets { get; set; } = new List<Pet>();
 
         public override string ToString()
         {
-            return base.Email=null!;
+            return base.Email = null!;
         }
     }
 }

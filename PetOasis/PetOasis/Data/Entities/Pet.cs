@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PetOasis.Data.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetOasis.Models
@@ -34,12 +35,12 @@ namespace PetOasis.Models
         [Display(Name = "Age: ", Prompt = "My pet's age is...")]
         public uint Age { get; set; }
 
+        public string? Image { get; set; }
+
         [Required]
         [Range(0, double.MaxValue, ErrorMessage = "It's not possible for your pet to weigh less than 0 kg!")]
         [Display(Name = "Weight (kg): ", Prompt = "My pet weighs...")]
         public double Weight { get; set; }
-
-       
         public User Owner { get; set; } = null!;
         public string OwnerId { get; set; } = null!;
 

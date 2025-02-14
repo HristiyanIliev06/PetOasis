@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PetOasis.Data;
+using PetOasis.Data.Entities;
 using PetOasis.Models;
 
 namespace PetOasis.Controllers
@@ -14,9 +11,10 @@ namespace PetOasis.Controllers
     {
         private readonly PetOasisContext _context;
 
-        public PetsController(PetOasisContext context)
+        public PetsController(PetOasisContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Pets
@@ -45,28 +43,10 @@ namespace PetOasis.Controllers
             return View(pet);
         }
 
-        // GET: Pets/Create
         public IActionResult Create()
         {
             ViewData["OwnerId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
-        }
-
-        // POST: Pets/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Species,Breed,Age,Weight,OwnerId")] Pet pet)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(pet);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["OwnerId"] = new SelectList(_context.Users, "Id", "Id", pet.OwnerId);
-            return View(pet);
         }
 
         // GET: Pets/Edit/5
@@ -91,7 +71,7 @@ namespace PetOasis.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Species,Breed,Age,Weight,OwnerId")] Pet pet)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Species,Breed,Age,Weight,Image,OwnerId")] Pet pet)
         {
             if (id != pet.Id)
             {
@@ -159,6 +139,60 @@ namespace PetOasis.Controllers
         private bool PetExists(int id)
         {
             return _context.Pets.Any(e => e.Id == id);
+        }
+        
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        
+
+        [HttpPost]
+        public async Task<IActionResult> Create(PetViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var pet = new Pet
+                {
+                    Name = model.Name,
+                    Species = model.Species,
+                    Breed = model.Breed,
+                    Age = model.Age,
+                    Weight = model.Weight,
+                    OwnerId = "C88D2116-79BB-4043-8C10-E9E2B5715E1D"
+                };
+
+                if (model.ImageFile != null && model.ImageFile.Length > 0)
+                {
+                    // Get the path to the wwwroot folder
+                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+
+                    // Ensure the uploads folder exists
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+
+                    // Generate a unique file name for the uploaded file
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ImageFile.FileName;
+
+                    // Combine the folder path and file name
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    // Save the file to wwwroot/uploads
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await model.ImageFile.CopyToAsync(fileStream);
+                    }
+
+                    // Save the relative path to the database (optional)
+                    pet.Image = $"/uploads/{uniqueFileName}";
+                }
+
+                _context.Pets.Add(pet);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(model);
         }
     }
 }

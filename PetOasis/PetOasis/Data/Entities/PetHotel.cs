@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PetOasis.Models
+namespace PetOasis.Data.Entities
 {
     [Table("PetHotel", Schema = "blg")]
     public class PetHotel
@@ -18,7 +18,7 @@ namespace PetOasis.Models
 
         [Required]
         [MaxLength(30)]
-        public string City {  get; set; } = null!;
+        public string City { get; set; } = null!;
 
         [Required]
         [MaxLength(30)]

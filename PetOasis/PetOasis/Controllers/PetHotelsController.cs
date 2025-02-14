@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PetOasis.Data;
-using PetOasis.Models;
+using PetOasis.Data.Entities;
 
 namespace PetOasis.Controllers
 {

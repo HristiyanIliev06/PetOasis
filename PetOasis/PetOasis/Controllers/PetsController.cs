@@ -4,9 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using PetOasis.Data;
 using PetOasis.Data.Entities;
 using PetOasis.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PetOasis.Controllers
 {
+    
     public class PetsController : Controller
     {
         private readonly PetOasisContext _context;

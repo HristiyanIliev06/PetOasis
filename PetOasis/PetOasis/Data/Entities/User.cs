@@ -9,12 +9,9 @@ namespace PetOasis.Data.Entities
     public class User : IdentityUser
     {
         [MaxLength(30)]
-        [Required]
-        public string FirstName { get; set; } = null!;
+        public string? FirstName { get; set; }
         [MaxLength(30)]
-        [Required]
-        public string LastName { get; set; } = null!;
-        [Required]
+        public string? LastName { get; set; }
         [Range(18, double.MaxValue, ErrorMessage = "Sorry! You are not mature enough to use our pet services!")]
         public int Age { get; set; }
 

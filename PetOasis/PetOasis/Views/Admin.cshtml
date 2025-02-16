@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PetOasis.Data.Entities.User>
+
+<h2>Users Managers</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model)
+        {
+            <tr>
+                <td>@user.FirstName</td>
+                <td>@user.Email</td>
+                <td>
+                    @(User.IsInRole("Admin")?"Admin":"User")
+                </td>
+                <td>
+                    <a asp-action="ChangeRole" asp-route-id="@user.Id" class="btn btn-warning">
+                        Change Role
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

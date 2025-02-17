@@ -1,0 +1,11 @@
+﻿@model PetOasis.Models.User
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h2>User Details</h2>
+<p><strong>Email:</strong> @Model.Email</p>
+<p><strong>UserName:</strong> @Model.UserName</p>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

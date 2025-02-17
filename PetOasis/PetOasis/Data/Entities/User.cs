@@ -15,7 +15,7 @@ namespace PetOasis.Data.Entities
         [Range(18, double.MaxValue, ErrorMessage = "Sorry! You are not mature enough to use our pet services!")]
         public int Age { get; set; }
 
-
+        public string? AccountPicture { get; set; }
 
         [ServiceStack.DataAnnotations.Unique]
         [MaxLength(100)]

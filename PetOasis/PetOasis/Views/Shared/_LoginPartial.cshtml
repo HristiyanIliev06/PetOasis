@@ -4,9 +4,16 @@
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
+    <li class="nav-item">
+        <img src="@user?.AccountPicture" class="img-fluid profile-img rounded-pill"/>
+    </li>
     <li class="nav-item">
         <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
     </li>

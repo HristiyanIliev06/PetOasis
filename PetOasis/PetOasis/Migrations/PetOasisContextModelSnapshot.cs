@@ -175,8 +175,7 @@ namespace PetOasis.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("When_uploaded")
                         .ValueGeneratedOnAddOrUpdate()
@@ -185,6 +184,45 @@ namespace PetOasis.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PawPost", "blg");
+                });
+
+            modelBuilder.Entity("PetOasis.Data.Entities.Pet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("Age")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Breed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Species")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Weight")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
+
+                    b.ToTable("Pet", "blg");
                 });
 
             modelBuilder.Entity("PetOasis.Data.Entities.PetHotel", b =>
@@ -197,8 +235,7 @@ namespace PetOasis.Migrations
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -209,21 +246,18 @@ namespace PetOasis.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Outside_View")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Street")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("Street_Number")
                         .HasColumnType("bigint");
@@ -256,6 +290,9 @@ namespace PetOasis.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("AccountPicture")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
@@ -271,12 +308,10 @@ namespace PetOasis.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -322,48 +357,6 @@ namespace PetOasis.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("PetOasis.Models.Pet", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<long>("Age")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Breed")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("OwnerId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("Species")
-                        .HasMaxLength(20)
-                        .HasColumnType("int");
-
-                    b.Property<double>("Weight")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OwnerId");
-
-                    b.ToTable("Pet", "blg");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -417,26 +410,7 @@ namespace PetOasis.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PetOasis.Data.Entities.Shelter", b =>
-                {
-                    b.HasOne("PetOasis.Data.Entities.PetHotel", "PetHotel")
-                        .WithMany("Shelters")
-                        .HasForeignKey("PetHotelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PetOasis.Models.Pet", "Pet")
-                        .WithMany("Shelters")
-                        .HasForeignKey("PetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Pet");
-
-                    b.Navigation("PetHotel");
-                });
-
-            modelBuilder.Entity("PetOasis.Models.Pet", b =>
+            modelBuilder.Entity("PetOasis.Data.Entities.Pet", b =>
                 {
                     b.HasOne("PetOasis.Data.Entities.User", "Owner")
                         .WithMany("Pets")
@@ -447,6 +421,30 @@ namespace PetOasis.Migrations
                     b.Navigation("Owner");
                 });
 
+            modelBuilder.Entity("PetOasis.Data.Entities.Shelter", b =>
+                {
+                    b.HasOne("PetOasis.Data.Entities.PetHotel", "PetHotel")
+                        .WithMany("Shelters")
+                        .HasForeignKey("PetHotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PetOasis.Data.Entities.Pet", "Pet")
+                        .WithMany("Shelters")
+                        .HasForeignKey("PetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pet");
+
+                    b.Navigation("PetHotel");
+                });
+
+            modelBuilder.Entity("PetOasis.Data.Entities.Pet", b =>
+                {
+                    b.Navigation("Shelters");
+                });
+
             modelBuilder.Entity("PetOasis.Data.Entities.PetHotel", b =>
                 {
                     b.Navigation("Shelters");
@@ -455,11 +453,6 @@ namespace PetOasis.Migrations
             modelBuilder.Entity("PetOasis.Data.Entities.User", b =>
                 {
                     b.Navigation("Pets");
-                });
-
-            modelBuilder.Entity("PetOasis.Models.Pet", b =>
-                {
-                    b.Navigation("Shelters");
                 });
 #pragma warning restore 612, 618
         }

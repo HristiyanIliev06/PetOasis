@@ -5,6 +5,7 @@ using PetOasis.Data;
 using PetOasis.Data.Entities;
 using PetOasis.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace PetOasis.Controllers
 {
@@ -20,10 +21,11 @@ namespace PetOasis.Controllers
         }
 
         // GET: Pets
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
-            var petOasisContext = _context.Pets.Include(p => p.Owner);
-            return View(await petOasisContext.ToListAsync());
+            var pets = await _context.Pets.Include(p => p.Owner).ToListAsync();
+            return View(pets);
         }
 
         // GET: Pets/Details/5
@@ -45,6 +47,7 @@ namespace PetOasis.Controllers
             return View(pet);
         }
 
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["OwnerId"] = new SelectList(_context.Users, "Id", "Id");
@@ -148,6 +151,7 @@ namespace PetOasis.Controllers
         
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create(PetViewModel model)
         {
             if (ModelState.IsValid)
@@ -159,9 +163,10 @@ namespace PetOasis.Controllers
                     Breed = model.Breed,
                     Age = model.Age,
                     Weight = model.Weight,
-                    OwnerId = "C88D2116-79BB-4043-8C10-E9E2B5715E1D"
+                    OwnerId = User.FindFirstValue(ClaimTypes.NameIdentifier)
                 };
 
+                // Make this as a service method
                 if (model.ImageFile != null && model.ImageFile.Length > 0)
                 {
                     // Get the path to the wwwroot folder

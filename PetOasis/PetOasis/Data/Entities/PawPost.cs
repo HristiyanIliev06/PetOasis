@@ -9,7 +9,6 @@ namespace PetOasis.Data.Entities
         [Key]
         public int Id { get; set; }
         [Required]
-        [MaxLength(20)]
         public string Title { get; set; } = null!;
         public string? Description { get; set; }
 

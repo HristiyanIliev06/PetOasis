@@ -12,16 +12,13 @@ namespace PetOasis.Data.Entities
 
         [ServiceStack.DataAnnotations.Unique]
         [Required]
-        [MaxLength(30)]
         public string Name { get; set; } = null!;
 
 
         [Required]
-        [MaxLength(30)]
         public string City { get; set; } = null!;
 
         [Required]
-        [MaxLength(30)]
         public string Street { get; set; } = null!;
 
         [Required]
@@ -30,7 +27,6 @@ namespace PetOasis.Data.Entities
         [Url]
         public string? Outside_View { get; set; }
 
-        [MaxLength(15)]
         public string Phone { get; set; } = null!;
 
         public string Email { get; set; } = null!;

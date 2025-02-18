@@ -1,8 +1,7 @@
-﻿using PetOasis.Data.Entities;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PetOasis.Models
+namespace PetOasis.Data.Entities
 {
     public enum Species
     {
@@ -16,17 +15,14 @@ namespace PetOasis.Models
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(100)]
         [Required]
         [Display(Name = "Name: ", Prompt = "My pet's name is...")]
         public string Name { get; set; } = null!;
 
-        [MaxLength(20)]
         [Required]
         [Display(Name = "Species: ", Prompt = "My pet's species is...")]
         public Species Species { get; set; } 
 
-        [MaxLength(100)]
         [Required]
         [Display(Name = "Breed (optional): ", Prompt = "My pet's breed is...")]
         public string? Breed { get; set; }
@@ -38,7 +34,6 @@ namespace PetOasis.Models
         public string? Image { get; set; }
 
         [Required]
-        [Range(0, double.MaxValue, ErrorMessage = "It's not possible for your pet to weigh less than 0 kg!")]
         [Display(Name = "Weight (kg): ", Prompt = "My pet weighs...")]
         public double Weight { get; set; }
         public User Owner { get; set; } = null!;

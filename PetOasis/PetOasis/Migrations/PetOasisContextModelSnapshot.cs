@@ -199,20 +199,34 @@ namespace PetOasis.Migrations
 
                     b.Property<string>("Breed")
                         .IsRequired()
+<<<<<<< HEAD
                         .HasColumnType("nvarchar(max)");
+=======
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+>>>>>>> 910dd5375627fd48bd50bba57a3a4da027950fb0
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
+<<<<<<< HEAD
                         .HasColumnType("nvarchar(max)");
+=======
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+>>>>>>> 910dd5375627fd48bd50bba57a3a4da027950fb0
 
                     b.Property<string>("OwnerId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Species")
+<<<<<<< HEAD
+=======
+                        .HasMaxLength(20)
+>>>>>>> 910dd5375627fd48bd50bba57a3a4da027950fb0
                         .HasColumnType("int");
 
                     b.Property<double>("Weight")

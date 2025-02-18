@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using PetOasis.Data.Entities;
 using PetOasis.Models;
 
 namespace PetOasis.Controllers

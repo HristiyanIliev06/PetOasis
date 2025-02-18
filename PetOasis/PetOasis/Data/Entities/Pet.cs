@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PetOasis.Models
+namespace PetOasis.Data.Entities
 {
     public enum Species
     {

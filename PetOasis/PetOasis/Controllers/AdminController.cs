@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PetOasis.Data.Entities;
-using PetOasis.Models;
 using System.Linq;
 using System.Threading.Tasks;
 

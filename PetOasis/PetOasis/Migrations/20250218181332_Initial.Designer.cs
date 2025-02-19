@@ -12,11 +12,7 @@ using PetOasis.Data;
 namespace PetOasis.Migrations
 {
     [DbContext(typeof(PetOasisContext))]
-<<<<<<<< HEAD:PetOasis/PetOasis/Migrations/20250217191224_Initial.Designer.cs
-    [Migration("20250217191224_Initial")]
-========
-    [Migration("20250218180205_Initial")]
->>>>>>>> 910dd5375627fd48bd50bba57a3a4da027950fb0:PetOasis/PetOasis/Migrations/20250218180205_Initial.Designer.cs
+    [Migration("20250218181332_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -206,34 +202,20 @@ namespace PetOasis.Migrations
 
                     b.Property<string>("Breed")
                         .IsRequired()
-<<<<<<<< HEAD:PetOasis/PetOasis/Migrations/20250217191224_Initial.Designer.cs
                         .HasColumnType("nvarchar(max)");
-========
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
->>>>>>>> 910dd5375627fd48bd50bba57a3a4da027950fb0:PetOasis/PetOasis/Migrations/20250218180205_Initial.Designer.cs
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-<<<<<<<< HEAD:PetOasis/PetOasis/Migrations/20250217191224_Initial.Designer.cs
                         .HasColumnType("nvarchar(max)");
-========
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
->>>>>>>> 910dd5375627fd48bd50bba57a3a4da027950fb0:PetOasis/PetOasis/Migrations/20250218180205_Initial.Designer.cs
 
                     b.Property<string>("OwnerId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Species")
-<<<<<<<< HEAD:PetOasis/PetOasis/Migrations/20250217191224_Initial.Designer.cs
-========
-                        .HasMaxLength(20)
->>>>>>>> 910dd5375627fd48bd50bba57a3a4da027950fb0:PetOasis/PetOasis/Migrations/20250218180205_Initial.Designer.cs
                         .HasColumnType("int");
 
                     b.Property<double>("Weight")

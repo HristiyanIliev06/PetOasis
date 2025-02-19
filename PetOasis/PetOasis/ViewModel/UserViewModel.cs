@@ -5,6 +5,7 @@ namespace PetOasis.ViewModel
 {
     public class UserViewModel
     {
+        public string? Id { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
 
@@ -13,5 +14,6 @@ namespace PetOasis.ViewModel
         public  string? Email { get; set; }
 
         public IFormFile? AccountPicture { get; set; }
+       
     }
 }

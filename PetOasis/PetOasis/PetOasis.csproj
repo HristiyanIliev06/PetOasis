@@ -27,4 +27,8 @@
     <PackageReference Include="ServiceStack.Interfaces" Version="8.5.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\imagery\facilities_inside\" />
+  </ItemGroup>
+
 </Project>

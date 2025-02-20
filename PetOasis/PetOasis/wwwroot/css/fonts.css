@@ -1,0 +1,7 @@
+/* Google Fonts - Itim */
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+/* Apply Itim font globally */
+* {
+    font-family: 'Itim', cursive;
+}

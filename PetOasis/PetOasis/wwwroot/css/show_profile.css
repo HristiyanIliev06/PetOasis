@@ -1,0 +1,194 @@
+.profile-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #F9DF80;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-welcome {
+    flex-grow: 1;
+}
+
+.profile-welcome h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.profile-link {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.logout-link {
+    background: #2b6183;
+    color: white;
+}
+
+.logout-link:hover {
+    background: #1d4d6d;
+}
+
+.edit-link {
+    background: white;
+    color: #2b6183;
+}
+
+.edit-link:hover {
+    background: #f0f0f0;
+}
+
+.delete-link {
+    background: #ffe5e5;
+    color: #dc3545;
+}
+
+.delete-link:hover {
+    background: #ffd5d5;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 2rem 0 0.5rem 0;
+    text-align: left;
+}
+
+.section-subtitle {
+    color: #666;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+
+.pets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    
+    
+}
+
+.pet-link {
+    text-decoration: none;
+    color: inherit;
+    
+}
+
+.pet-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.pet-card:hover {
+    transform: translateY(-5px);
+}
+
+.pet-icon {
+    font-size: 2rem;
+    color: #2b6183;
+    margin-bottom: 1rem;
+}
+
+.pet-name {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.pet-type {
+    color: #666;
+    
+}
+
+.delete-pet:hover {
+    background: #ffd5d5;
+}
+
+.delete-pet {
+    background: #ffe5e5;
+    color: #dc3545;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    display: inline-block;
+    position: absolute;
+    top: -10px; /* Adjust as needed */
+    right: 10px;
+  }
+
+.add-pet-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa !important;
+    cursor: pointer;
+}
+
+.add-pet-card:hover {
+    background: #f0f0f0 !important;
+}
+
+.discount-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.discount-card {
+    aspect-ratio: 16/9;
+    background: #f0f8ff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.discount-card:nth-child(even) {
+    background: white;
+}
+
+.discount-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: white;
+}

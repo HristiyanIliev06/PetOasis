@@ -9,6 +9,7 @@ obj/
 *.sln.docstates
 
 # ASP.NET Core local settings (files with sensitive data)
+appsettings.json
 appsettings.Development.json
 appsettings.Local.json
 appsettings.Secrets.json
@@ -32,3 +33,5 @@ packages/
 
 # Node modules (if your project uses npm)
 node_modules/
+
+Migrations/

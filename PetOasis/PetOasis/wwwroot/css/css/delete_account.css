@@ -1,0 +1,157 @@
+/* Delete Account Page Styles */
+.delete-container {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #fff;
+    margin: 120px auto 80px;
+    max-width: 1200px;
+}
+
+.delete-container .logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.delete-container .logo img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.delete-container .logo h1 {
+    font-size: 2rem;
+    color: #000;
+    margin: 0;
+}
+
+.delete-form {
+    background-color: #ffe680;
+    padding: 2.5rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.delete-form h2 {
+    text-align: center;
+    color: #000;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #000;
+    font-size: 0.9rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+.checkboxes {
+    margin-top: 2rem;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    gap: 0.75rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 0.3rem;
+    min-width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+    color: #333;
+    flex: 1;
+}
+
+.delete-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #2b6183;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #1e4b6d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .delete-container {
+        padding: 1rem;
+        margin: 60px auto 80px;
+    }
+
+    .delete-form {
+        padding: 1.5rem;
+    }
+
+    .delete-container .logo img {
+        width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .delete-form h2 {
+        font-size: 1.25rem;
+    }
+
+    .form-group label {
+        font-size: 0.85rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+        padding: 0.6rem;
+    }
+
+    .checkbox-group label {
+        font-size: 0.8rem;
+    }
+}
+
+/* Header and Footer Adjustments */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+footer {
+    margin-top: auto;
+}

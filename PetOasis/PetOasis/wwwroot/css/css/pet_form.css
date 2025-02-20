@@ -1,0 +1,200 @@
+.pet-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #fff;
+}
+
+.pet-form-container .logo {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.pet-form-container .logo img {
+    width: 120px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.pet-form-container .logo h1 {
+    font-size: 2rem;
+    color: #000;
+    margin: 0;
+}
+
+.pet-form {
+    background-color: #ffe680;
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    position: relative;
+    overflow: visible;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+}
+
+.pet-form::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background-color: #ffe680;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    z-index: -1;
+}
+
+.pet-form h2 {
+    text-align: center;
+    color: #000;
+    margin-bottom: 2.5rem;
+    font-size: 1.5rem;
+}
+
+.form-layout {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-fields {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #000;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23000' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2rem;
+}
+
+.form-group input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.form-group input[type="number"]::-webkit-outer-spin-button,
+.form-group input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-group input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #2b6183;
+}
+
+.form-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group.half {
+    flex: 1;
+    min-width: 0;
+}
+
+.image-upload {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 1.75rem;
+}
+
+.upload-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    border: 2px dashed #2b6183;
+}
+
+.upload-label {
+    color: #2b6183;
+    font-size: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.register-pet-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #2b6183;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem;
+}
+
+.register-pet-btn:hover {
+    background-color: #1e4b6d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pet-form-container {
+        padding: 1rem;
+    }
+
+    .pet-form {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-layout {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .image-upload {
+        justify-content: center;
+        padding-top: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .form-group.half {
+        width: 100%;
+    }
+
+    .pet-form-container .logo img {
+        width: 100px;
+    }
+}

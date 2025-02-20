@@ -8,7 +8,7 @@
 <p><strong>Email:</strong> @Model.Email</p>
 <p><strong>UserName:</strong> @Model.UserName</p>
 
-<form asp-action="DeleteConfirmed" method="post">
+<form asp-action="Delete" method="post">
     <input type="hidden" asp-for="Id" />
     <button type="submit" class="btn btn-danger">Delete</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>

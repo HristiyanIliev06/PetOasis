@@ -4,7 +4,12 @@
 @{
     ViewData["Title"] = "Create";
 }
-
+<style>
+    .row {
+        background-color: #FFD780;
+        margin: auto;
+    }
+</style>
 <h1>Create</h1>
 
 <h4>PawPost</h4>
@@ -40,5 +45,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

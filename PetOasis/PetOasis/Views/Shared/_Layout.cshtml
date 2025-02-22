@@ -23,7 +23,7 @@
     <header class="header">
         <div class="logo">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                <img src="{% static '/imagery/logo.png' %}" alt="Pet Oasis Logo" />
+                <img src="./uploads/imagery/logo.png" alt="Pet Oasis Logo" />
             </a>
         </div>
         <nav class="nav">
@@ -31,11 +31,11 @@
                 <li><a class="active" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                 <li><a class="nav-link text-dark" asp-area="" asp-controller="PetHotels" asp-action="Index">Facilities</a></li>
                 <li>
-                    <a href="{% url 'blog_and_news' %}" class="blog-link">
+                    <a href="@Url.Content("~/Views/Others/Blog&News.cshtml")" class="blog-link">
                         Blog & News
                     </a>
                 </li>
-                <li><a href="{% url 'about_us' %}">About Us</a></li>
+                <li><a href="@Url.Content("~/Views/Others/AboutUs.cshtml")">About Us</a></li>
             </ul>
         </nav>
         <div class="search-and-login">
@@ -47,13 +47,15 @@
             </div>
             @if (!SignInManager.IsSignedIn(User))
             {
-                    <a asp-area="Identity" asp-page="/Account/Register">
-                        <button class="register">REGISTER</button>
-                    </a>           
+
+                <button class="register">
+                    <a asp-area="Identity" asp-page="/Account/Register">REGISTER</a>
+                </button>
+
             }
             else if (!string.IsNullOrEmpty(user?.AccountPicture))
             {
-                <a asp-area="Identity" asp-page="/Account/ShowProfile">
+                <a asp-area="Identity" asp-page="/Account/Manage/Index">
                     <img src=""
                          alt="Profile Picture"
                          class="profile-image" />
@@ -61,7 +63,7 @@
             }
             else
             {
-                <a asp-area="Identity" asp-page="/Account/ShowProfile">
+                <a asp-area="Identity" asp-page="/Account/Manage/Index">
                     <img src="@user?.AccountPicture" class="profile-image" />
                 </a>
             }
@@ -85,7 +87,7 @@
         </div>
     </header>
     @* <header> *@
-        
+
     @*          @if (User.IsInRole("Admin"))  *@
 
     @*          {  *@
@@ -137,9 +139,66 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - PetOasis - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Left Section -->
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <img src="./uploads/imagery/logo.png" alt="Pet Oasis Logo" />
+                </div>
+                <p class="footer-motto">
+                    Care for every paw,<br />home for every soul
+                </p>
+                <div class="social-icons">
+                    <a href="#facebook" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#instagram" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#twitter" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#linkedin" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+                <p class="copyright">2025 PetOasis.com. All rights reserved.</p>
+            </div>
+
+            <!-- Map Section -->
+            <div class="footer-map">
+                <h3>Find Us</h3>
+                <img src="./uploads/imagery/map_of_bulgaria_pet_oasis.png" alt="Map of Bulgaria" class="map-image" />
+                <p class="locations">Locations in Sofia, Plovdiv, and Varna</p>
+            </div>
+
+            <!-- Right Section -->
+            <div class="footer-right">
+                <div class="email-bulletin">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest updates</p>
+                    <form class="subscribe-form">
+                        <div class="input-group">
+                            <input type="email" placeholder="Your email address" required />
+                            <button type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <nav class="footer-links">
+                    <h3>Quick Links</h3>
+                    <div class="links-grid">
+                        <a href="{% url 'facilities' %}"><i class="fas fa-paw"></i> Facilities</a>
+                        <a href="#about"><i class="fas fa-paw"></i> About Us</a>
+                        <a href="#blog"><i class="fas fa-paw"></i> Blog & News</a>
+                        <a href="#contact"><i class="fas fa-paw"></i> Contact</a>
+                        <a href="#privacy"><i class="fas fa-paw"></i> Privacy Policy</a>
+                        <a href="#terms"><i class="fas fa-paw"></i> Terms of Service</a>
+                    </div>
+                </nav>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

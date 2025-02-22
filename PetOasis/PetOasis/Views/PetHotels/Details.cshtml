@@ -4,63 +4,165 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<section class="quote">
+    <div class="quote-container">
+        <div class="quote-text">
+            <i class="fas fa-quote-left"></i>
+            <h2>"Care for every paw, home for every heart"</h2>
+            <i class="fas fa-quote-right"></i>
+        </div>
+        <div class="values-container">
+            <div class="value-item">
+                <i class="fas fa-heart"></i>
+                <h3>Care</h3>
+                <p>
+                    Providing loving attention and professional care for every pet
+                    that enters our doors
+                </p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-home"></i>
+                <h3>Home</h3>
+                <p>
+                    Creating a warm, comfortable environment that feels just like home
+                </p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-dove"></i>
+                <h3>Peace</h3>
+                <p>Ensuring tranquil spaces where pets can relax and feel secure</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div>
-    <h4>PetHotel</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.City)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Street)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Street)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Street_Number)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Street_Number)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Outside_View)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Outside_View)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<section class="city-gallery">
+    <h2 class="section-title">@Model.Name</h2>
+    <div class="gallery-grid">
+        <div class="main-image image-container">
+            <img src="@Url.Content(Model.Outside_View)" alt="Pet Hotel Main View" />
+            <div class="image-label">Luxury Pet Hotel</div>
+        </div>
+        <div class="side-images">
+            <div class="side-image image-container">
+                <img src="{% static '/imagery/rooms/pet hotel standart room.jpg' %}" alt="Hotel Room 1" />
+                <div class="image-label">Standard Room</div>
+            </div>
+            <div class="side-image image-container">
+                <img src="{% static '/imagery/rooms/pet hotel premium room.jpg' %}" alt="Hotel Room 2" />
+                <div class="image-label">Premium Room</div>
+            </div>
+            <div class="side-image image-container">
+                <img src="{% static '/imagery/rooms/pet hotel deluxe suite.jpg' %}" alt="Hotel Room 3" />
+                <div class="image-label">Deluxe Suite</div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-images">
+        <div class="bottom-image image-container">
+            <img src="{% static '/imagery/shelter/the inside of a colorful and welcoming pet shelter (1).jpg' %}" alt="Pet Shelter 1" />
+            <div class="image-label">Our shelter</div>
+        </div>
+        <div class="bottom-image image-container">
+            <img src="{% static '/imagery/shelter/large pet play area.jpg' %}" alt="Pet Shelter 2" />
+            <div class="image-label">Play Area</div>
+        </div>
+        <div class="bottom-image image-container">
+            <img src="{% static '/imagery/shelter/the inside of a large pet hotel including reception, corridors, appropriately suited pet rooms.jpg' %}" alt="Pet Shelter 2">
+            <div class="image-label">Our corridors</div>
+        </div>
+    </div>
+</section>
+
+<section class="services-section">
+    <h2 class="services-title">
+        Everything for the calm and comfort of your beloved pet
+    </h2>
+    <p class="services-subtitle">Your pet's well-being is priceless for us</p>
+
+    <div class="services-grid">
+        <div class="service-item">
+            <i class="fas fa-clock"></i>
+            <div class="service-text">24h service for all your pet's needs</div>
+        </div>
+
+        <div class="service-item">
+            <i class="fas fa-paw"></i>
+            <div class="service-text">Walks 3 times a day</div>
+        </div>
+
+        <div class="service-item">
+            <i class="fas fa-bone"></i>
+            <div class="service-text">
+                Food of highest quality<br />for your precious pet
+            </div>
+        </div>
+
+        <div class="service-item">
+            <i class="fas fa-smile"></i>
+            <div class="service-text">Specialized pet playgrounds</div>
+        </div>
+    </div>
+</section>
+
+<section class="pricing-section">
+    <h2 class="pricing-title">Choose Your Pet's Perfect Stay</h2>
+    <div class="pricing-grid">
+        <!-- Basic Package -->
+        <div class="pricing-card">
+            <i class="fas fa-paw price-icon"></i>
+            <h3 class="price-title">Basic Comfort</h3>
+            <div class="price-amount">
+                $29<span class="price-period">/night</span>
+            </div>
+            <ul class="price-features">
+                <li><i class="fas fa-check"></i> Cozy sleeping area</li>
+                <li><i class="fas fa-check"></i> 2 walks per day</li>
+                <li><i class="fas fa-check"></i> Regular meals</li>
+                <li><i class="fas fa-check"></i> Basic grooming</li>
+                <li><i class="fas fa-check"></i> 24/7 staff supervision</li>
+            </ul>
+            <button class="price-button">Book Now</button>
+        </div>
+
+        <!-- Premium Package -->
+        <div class="pricing-card popular">
+            <div class="popular-badge">Most Popular</div>
+            <i class="fas fa-crown price-icon"></i>
+            <h3 class="price-title">Premium Paradise</h3>
+            <div class="price-amount">
+                $49<span class="price-period">/night</span>
+            </div>
+            <ul class="price-features">
+                <li><i class="fas fa-check"></i> Spacious private room</li>
+                <li><i class="fas fa-check"></i> 3 walks per day</li>
+                <li><i class="fas fa-check"></i> Premium pet food</li>
+                <li><i class="fas fa-check"></i> Full grooming service</li>
+                <li><i class="fas fa-check"></i> Playtime sessions</li>
+                <li><i class="fas fa-check"></i> Daily health check</li>
+                <li><i class="fas fa-check"></i> Photo updates</li>
+            </ul>
+            <button class="price-button">Book Now</button>
+        </div>
+
+        <!-- Luxury Package -->
+        <div class="pricing-card">
+            <i class="fas fa-gem price-icon"></i>
+            <h3 class="price-title">Royal Retreat</h3>
+            <div class="price-amount">
+                $79<span class="price-period">/night</span>
+            </div>
+            <ul class="price-features">
+                <li><i class="fas fa-check"></i> Luxury suite with window</li>
+                <li><i class="fas fa-check"></i> 4 walks per day</li>
+                <li><i class="fas fa-check"></i> Gourmet pet meals</li>
+                <li><i class="fas fa-check"></i> Spa treatments</li>
+                <li><i class="fas fa-check"></i> Private play sessions</li>
+                <li><i class="fas fa-check"></i> Vet consultations</li>
+                <li><i class="fas fa-check"></i> Live video calls</li>
+                <li><i class="fas fa-check"></i> Pick-up & drop-off</li>
+            </ul>
+            <button class="price-button">Book Now</button>
+        </div>
+    </div>
+</section>

@@ -47,10 +47,11 @@
             </div>
             @if (!SignInManager.IsSignedIn(User))
             {
-
-                <button class="register">
-                    <a asp-area="Identity" asp-page="/Account/Register">REGISTER</a>
-                </button>
+                <a asp-area="Identity" asp-page="/Account/Register">
+                    <button class="register">
+                        REGISTER
+                    </button>
+                </a>
 
             }
             else if (!string.IsNullOrEmpty(user?.AccountPicture))
@@ -204,6 +205,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/nav.js" asp-append-version="true"></script>
+    <script src="~/js/posts.js" asp-append-version="true"></script>
+    <script src="~/js/slider.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

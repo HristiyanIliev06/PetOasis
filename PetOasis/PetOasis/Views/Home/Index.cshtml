@@ -24,7 +24,7 @@
                 <article class="facility-card">
                 <h3>@Model.PetHotels.ElementAt(i).Name</h3>
                 <img src="@Model.PetHotels.ElementAt(i).Outside_View" alt="@Model.PetHotels.ElementAt(i).Name Facility" />
-                <a href="@Url.Action("Facility", new { city = Model.PetHotels.ElementAt(i).City })">
+                <a href="@Url.Action("Details", "PetHotels", new { city = Model.PetHotels.ElementAt(i).City })">
                     <button class="view-btn">View</button>
                 </a>
                 </article>
@@ -34,42 +34,8 @@
         {
             <p>...</p>
         }
-        @* {% for facility in top_3_facilities%} *@
-        @* <article class="facility-card"> *@
-        @*     <h3>{{facility.name}}</h3> *@
-        @*     <img src="{{facility.outside_view}}" alt="{{facility.name}} Facility" /> *@
-        @*     <a href="{% url 'facility' city=facility.city %}"> *@
-        @*         <button class="view-btn">View</button> *@
-        @*     </a> *@
-        @* </article> *@
-        @* {% empty %} ... {% endfor %} *@
-
-        <!--<article class="facility-card">
-        <h3>Pet Oasis Sofia</h3>
-        <img
-        src="{% static '/imagery/pet-oasis-sofia.jpg' %}"
-        alt="Pet Oasis Sofia Facility"
-        />
-        <button class="view-btn">View</button>
-        </article>
-        <article class="facility-card">
-        <h3>Pet Oasis Plovdiv</h3>
-        <img
-        src="{% static '/imagery/pet-oasis-plovdiv.jpg' %}"
-        alt="Pet Oasis Plovdiv Facility"
-        />
-        <button class="view-btn">View</button>
-        </article>
-        <article class="facility-card">
-        <h3>Pet Oasis Varna</h3>
-        <img
-        src="media/imagery/pet-oasis-varna.jpg' %}"
-        alt="Pet Oasis Varna Facility"
-        />
-        <button class="view-btn">View</button>
-        </article>  -->
     </div>
-    <a href="{% url 'facilities' %}">
+    <a asp-area="" asp-controller="PetHotels" asp-action="Index">
         <button class="view-all-btn">VIEW ALL</button>
     </a>
 </section>
@@ -140,23 +106,6 @@
             {
                 <p>...</p>
             }
-
-            @* {% for pawpost in pawposts%} *@
-            @* <div class="feedback-card"> *@
-            @*     <div class="pet-image"> *@
-            @*         <img src="{{ pawpost.image.url}}" alt="{{pawpost.title}}" /> *@
-            @*     </div> *@
-            @*     <div class="speech-bubble">{{ pawpost.description}}</div> *@
-            @*     <div class="paw-rating"> *@
-            @*         <i class="fas fa-paw"></i> *@
-            @*         <i class="fas fa-paw"></i> *@
-            @*         <i class="fas fa-paw"></i> *@
-            @*         <i class="fas fa-paw"></i> *@
-            @*         <i class="fas fa-paw"></i> *@
-            @*     </div> *@
-            @*     <p class="pet-name">{{pawpost.additional_mentions}}</p> *@
-            @* </div> *@
-            @* {% empty %} ... {% endfor %} *@
             <!-- Add more feedback cards as needed -->
         </div>
     </div>

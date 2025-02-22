@@ -19,8 +19,8 @@
         {
             <div class="facility-card">
                 <h3>@facility.Name</h3>
-                <img src="@facility.Outside_View" alt="@facility.Name Facility" />
-                <a href="@Url.Action("Facility", new { city = facility.City })">
+                    <img src="@Url.Content(facility.Outside_View)" alt="@facility.Name Facility" />
+                    <a href="@Url.Action("Details", new { city = facility.City })">
                     <button class="view-btn">View</button>
                 </a>
             </div>

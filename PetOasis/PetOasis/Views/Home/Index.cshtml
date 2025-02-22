@@ -1,12 +1,288 @@
-﻿@{
+﻿@using PetOasis.ViewModel
+@model ViewModels
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="fade-in">Welcome to Pet Oasis</h1>
-            <p class="fade-in-delay">Where every pet finds their paradise</p>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="fade-in">Welcome to Pet Oasis</h1>
+        <p class="fade-in-delay">Where every pet finds their paradise</p>
+    </div>
+</section>
+
+<!-- Top Facilities -->
+<section class="facilities">
+    <h2>Our top 3 facilities</h2>
+    <p>Our best pet hotels and their accompanying shelters</p>
+    <div class="facility-cards">
+        @if (Model.PetHotels != null && Model.PetHotels.Count() >= 3)
+        {
+            @for (int i = 1; i <= 3; i++)
+            {
+                <article class="facility-card">
+                <h3>@Model.PetHotels.ElementAt(i).Name</h3>
+                <img src="@Model.PetHotels.ElementAt(i).Outside_View" alt="@Model.PetHotels.ElementAt(i).Name Facility" />
+                <a href="@Url.Action("Facility", new { city = Model.PetHotels.ElementAt(i).City })">
+                    <button class="view-btn">View</button>
+                </a>
+                </article>
+            }
+        }        
+        else
+        {
+            <p>...</p>
+        }
+        @* {% for facility in top_3_facilities%} *@
+        @* <article class="facility-card"> *@
+        @*     <h3>{{facility.name}}</h3> *@
+        @*     <img src="{{facility.outside_view}}" alt="{{facility.name}} Facility" /> *@
+        @*     <a href="{% url 'facility' city=facility.city %}"> *@
+        @*         <button class="view-btn">View</button> *@
+        @*     </a> *@
+        @* </article> *@
+        @* {% empty %} ... {% endfor %} *@
+
+        <!--<article class="facility-card">
+        <h3>Pet Oasis Sofia</h3>
+        <img
+        src="{% static '/imagery/pet-oasis-sofia.jpg' %}"
+        alt="Pet Oasis Sofia Facility"
+        />
+        <button class="view-btn">View</button>
+        </article>
+        <article class="facility-card">
+        <h3>Pet Oasis Plovdiv</h3>
+        <img
+        src="{% static '/imagery/pet-oasis-plovdiv.jpg' %}"
+        alt="Pet Oasis Plovdiv Facility"
+        />
+        <button class="view-btn">View</button>
+        </article>
+        <article class="facility-card">
+        <h3>Pet Oasis Varna</h3>
+        <img
+        src="media/imagery/pet-oasis-varna.jpg' %}"
+        alt="Pet Oasis Varna Facility"
+        />
+        <button class="view-btn">View</button>
+        </article>  -->
+    </div>
+    <a href="{% url 'facilities' %}">
+        <button class="view-all-btn">VIEW ALL</button>
+    </a>
+</section>
+
+<!-- Quote Section -->
+<section class="quote">
+    <div class="quote-container">
+        <div class="quote-text">
+            <i class="fas fa-quote-left"></i>
+            <h2>"Care for every paw, home for every heart"</h2>
+            <i class="fas fa-quote-right"></i>
         </div>
-    </section>
-</div>
+        <div class="values-container">
+            <div class="value-item">
+                <i class="fas fa-heart"></i>
+                <h3>Care</h3>
+                <p>
+                    Providing loving attention and professional care for every pet that
+                    enters our doors
+                </p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-home"></i>
+                <h3>Home</h3>
+                <p>
+                    Creating a warm, comfortable environment that feels just like home
+                </p>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-dove"></i>
+                <h3>Peace</h3>
+                <p>Ensuring tranquil spaces where pets can relax and feel secure</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Feedback Section -->
+<section class="feedback">
+    <h2>Our customers' feedback</h2>
+    <p class="subtitle">What our furry friends think about us</p>
+
+    <div class="feedback-slider">
+        <div class="feedback-track">
+            @if (Model.PawPosts.Any())
+            {
+                
+            
+            @foreach (var pawpost in Model.PawPosts)
+            {
+                <div class="feedback-card">
+                    <div class="pet-image">
+                        @* <img src="@pawpost." alt="@pawpost.Title" /> *@
+                    </div>
+                    <div class="speech-bubble">@pawpost.Description</div>
+                    <div class="paw-rating">
+                        <i class="fas fa-paw"></i>
+                        <i class="fas fa-paw"></i>
+                        <i class="fas fa-paw"></i>
+                        <i class="fas fa-paw"></i>
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <p class="pet-name">@pawpost.Additional_mentions</p>
+                </div>
+            }
+            }
+            else
+            {
+                <p>...</p>
+            }
+
+            @* {% for pawpost in pawposts%} *@
+            @* <div class="feedback-card"> *@
+            @*     <div class="pet-image"> *@
+            @*         <img src="{{ pawpost.image.url}}" alt="{{pawpost.title}}" /> *@
+            @*     </div> *@
+            @*     <div class="speech-bubble">{{ pawpost.description}}</div> *@
+            @*     <div class="paw-rating"> *@
+            @*         <i class="fas fa-paw"></i> *@
+            @*         <i class="fas fa-paw"></i> *@
+            @*         <i class="fas fa-paw"></i> *@
+            @*         <i class="fas fa-paw"></i> *@
+            @*         <i class="fas fa-paw"></i> *@
+            @*     </div> *@
+            @*     <p class="pet-name">{{pawpost.additional_mentions}}</p> *@
+            @* </div> *@
+            @* {% empty %} ... {% endfor %} *@
+            <!-- Add more feedback cards as needed -->
+        </div>
+    </div>
+
+    <!--<div class="feedback-card">
+      <div class="pet-image">
+        <img src="media/imagery/feedback/dog1.jpg" alt="Happy Dog" />
+      </div>
+      <div class="speech-bubble">
+        "The best care I've ever received! Lots of treats and belly rubs!"
+      </div>
+      <div class="paw-rating">
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+      </div>
+      <p class="pet-name">- Max the Golden Retriever</p>
+    </div>
+
+    <div class="feedback-card">
+      <div class="pet-image">
+        <img src="media/imagery/feedback/cat1.jpg" alt="Happy Cat" />
+      </div>
+      <div class="speech-bubble">
+        "Purrfect accommodation! The sunny spots are amazing!"
+      </div>
+      <div class="paw-rating">
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+      </div>
+      <p class="pet-name">- Luna the Siamese</p>
+    </div>
+
+    <div class="feedback-card">
+      <div class="pet-image">
+        <img src="media/imagery/feedback/dog2.jpg" alt="Happy Puppy" />
+      </div>
+      <div class="speech-bubble">
+        "So many friends to play with! Can't wait to come back!"
+      </div>
+      <div class="paw-rating">
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+      </div>
+      <p class="pet-name">- Charlie the Beagle</p>
+    </div>
+
+    <div class="feedback-card">
+      <div class="pet-image">
+        <img src="media/imagery/feedback/cat2.jpg" alt="Happy Cat" />
+      </div>
+      <div class="speech-bubble">
+        "The staff here treats me like royalty! My favorite spot is by the window."
+      </div>
+      <div class="paw-rating">
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+      </div>
+      <p class="pet-name">- Oliver the Persian</p>
+    </div>
+
+    <div class="feedback-card">
+      <div class="pet-image">
+        <img src="media/imagery/feedback/dog3.jpg" alt="Happy Dog" />
+      </div>
+      <div class="speech-bubble">
+        "Amazing playtime activities! Made so many furry friends here!"
+      </div>
+      <div class="paw-rating">
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+      </div>
+      <p class="pet-name">- Bella the Labrador</p>
+    </div>
+
+    <div class="feedback-card">
+      <div class="pet-image">
+        <img src="media/imagery/feedback/bird1.jpg" alt="Happy Bird" />
+      </div>
+      <div class="speech-bubble">
+        "Spacious cages and friendly staff! Love the natural light!"
+      </div>
+      <div class="paw-rating">
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+      </div>
+      <p class="pet-name">- Rio the Parrot</p>
+    </div>
+
+    <div class="feedback-card">
+      <div class="pet-image">
+        <img src="media/imagery/feedback/cat3.jpg" alt="Happy Cat" />
+      </div>
+      <div class="speech-bubble">
+        "The scratching posts are top-notch! And the catnip toys are purr-fect!"
+      </div>
+      <div class="paw-rating">
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+        <i class="fas fa-paw"></i>
+      </div>
+      <p class="pet-name">- Milo the Maine Coon</p>
+    </div> -->
+
+    <div class="slider-controls">
+        <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</section>
+<script src="~/js/slider.js" asp-append-version="true"></script>

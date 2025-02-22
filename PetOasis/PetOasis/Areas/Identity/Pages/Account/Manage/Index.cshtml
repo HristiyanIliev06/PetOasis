@@ -1,35 +1,113 @@
 ﻿@page
+
+@using Microsoft.AspNetCore.Identity
+@using PetOasis.Data.Entities
+
 @model IndexModel
+@inject UserManager<User> UserManager
+
 @{
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
+    var user = await UserManager.GetUserAsync(User);
 }
 
-<h3>@ViewData["Title"]</h3>
-<partial name="_StatusMessage" for="StatusMessage" />
-<div class="row">
-    <div class="col-md-6">
-        <form id="profile-form" method="post" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
-                <label asp-for="Username" class="form-label"></label>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number."/>
-                <label asp-for="Input.PhoneNumber" class="form-label"></label>
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.AccountPicture">Upload Image</label>
-                <input type="file" accept="image/png, image/jpeg" asp-for="Input.AccountPicture" class="form-control" />
-                <span asp-validation-for="Input.AccountPicture" class="text-danger"></span>
-            </div>
-            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
-        </form>
+<div class="profile-container">
+    <!-- Profile Header -->
+    <div class="profile-header">
+        @if (!string.IsNullOrEmpty(user?.AccountPicture))
+        {
+
+            <img src="@user?.AccountPicture" class="profile-image" />
+
+        }
+        else
+        {
+            <img src="" class="profile-image" />
+        }
+        <div class="profile-welcome">
+            <h1>Hello @user?.UserName! Welcome!</h1>
+        </div>
+        <div class="profile-actions">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="profile-link logout-link">Logout</button>
+            </form>
+
+            @if (User.IsInRole("Admin"))
+
+            {
+
+                <div class="nav-item">
+
+                    <button type="submit" class="profile-link logout-link"> <a class="nav-link" asp-controller="Admin" asp-action="Index">Admin Panel</a></button>
+
+                </div>
+
+            }
+        </div>
     </div>
+
+    <form id="profile-form" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+        <div class="form-floating mb-3">
+            <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
+            <label asp-for="Username" class="form-label"></label>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number." />
+            <label asp-for="Input.PhoneNumber" class="form-label"></label>
+            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.AccountPicture">Upload Image</label>
+            <input type="file" accept="image/png, image/jpeg" asp-for="Input.AccountPicture" class="form-control" />
+            <span asp-validation-for="Input.AccountPicture" class="text-danger"></span>
+        </div>
+        <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+    </form>
+
+
+    <!-- Pets Section -->
+    <h2 class="section-title">Your Pets</h2>
+    <p class="section-subtitle">Register your pets for future booking</p>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Pets" asp-action="Index">
+        <div class="pet-card add-pet-card">
+            <p>Pets</p>
+            <p>View all Pets</p>
+        </div>
+    </a>
+    <!-- Add Pet Card -->
+    <a class="nav-link text-dark" asp-area="" asp-controller="Pets" asp-action="Create">
+        <div class="pet-card add-pet-card">
+            <p> Pets</p>
+            <p>Add New Pet</p>
+        </div>
+    </a>
 </div>
 
+<!-- Offers Section -->
+<h2 class="section-title">Your Offers</h2>
+<p class="section-subtitle">
+    The loyal client receives special discounts and privileges
+</p>
+
+<!-- Discount Cards Section -->
+<h3 class="section-title">Your Discount Cards</h3>
+<div class="discount-cards">
+    <div class="discount-card">
+        <img src="~/uploads/imagery/offers/Карта за намаления.png"
+             alt="10% Off Next Stay" />
+    </div>
+    <div class="discount-card">
+        <img src="~/uploads/imagery/offers/Отзад.png"
+             alt="Free Grooming Service" />
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+    </div>
+</div>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

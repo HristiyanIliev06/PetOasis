@@ -15,20 +15,20 @@
     <div class="facilities-grid">
         @if (Model.Any())
         {
-        @foreach (var facility in Model)
-        {
-            <div class="facility-card">
-                <h3>@facility.Name</h3>
+            @foreach (var facility in Model)
+            {
+                <div class="facility-card">
+                    <h3>@facility.Name</h3>
                     <img src="@Url.Content(facility.Outside_View)" alt="@facility.Name Facility" />
                     <a href="@Url.Action("Details", new { city = facility.City })">
-                    <button class="view-btn">View</button>
-                </a>
-            </div>
-        }
+                        <button class="view-btn">View</button>
+                    </a>
+                </div>
+            }
         }
         else
         {
             <p>...</p>
-        } 
+        }
     </div>
 </section>

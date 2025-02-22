@@ -21,7 +21,7 @@ namespace PetOasis.Controllers
         }
 
         // GET: Pets
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var pets = await _context.Pets.Include(p => p.Owner).ToListAsync();

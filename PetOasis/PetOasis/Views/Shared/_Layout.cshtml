@@ -18,12 +18,13 @@
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
 </head>
 <body>
     <header class="header">
         <div class="logo">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                <img src="./uploads/imagery/logo.png" alt="Pet Oasis Logo" />
+                <img src="~/uploads/imagery/logo.png" alt="Pet Oasis Logo" />
             </a>
         </div>
         <nav class="nav">
@@ -31,11 +32,15 @@
                 <li><a class="active" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                 <li><a class="nav-link text-dark" asp-area="" asp-controller="PetHotels" asp-action="Index">Facilities</a></li>
                 <li>
-                    <a href="@Url.Content("~/Views/Others/Blog&News.cshtml")" class="blog-link">
+                    <a asp-controller="BlogAndNews" asp-action="Index" class="blog-link">
                         Blog & News
                     </a>
                 </li>
-                <li><a href="@Url.Content("~/Views/Others/AboutUs.cshtml")">About Us</a></li>
+                <li>
+                    <a asp-controller="AboutUs" asp-action="Index" class="blog-link">
+                        About Us
+                    </a>
+                </li>
             </ul>
         </nav>
         <div class="search-and-login">
@@ -47,9 +52,10 @@
             </div>
             @if (!SignInManager.IsSignedIn(User))
             {
+
                 <a asp-area="Identity" asp-page="/Account/Register">
                     <button class="register">
-                        REGISTER
+                    REGISTER
                     </button>
                 </a>
 
@@ -57,17 +63,12 @@
             else if (!string.IsNullOrEmpty(user?.AccountPicture))
             {
                 <a asp-area="Identity" asp-page="/Account/Manage/Index">
-                    <img src=""
-                         alt="Profile Picture"
-                         class="profile-image" />
-                </a>
-            }
-            else
-            {
-                <a asp-area="Identity" asp-page="/Account/Manage/Index">
                     <img src="@user?.AccountPicture" class="profile-image" />
                 </a>
             }
+            
+                @* <partial name="_LoginPartial" /> *@
+            
             @* {% if not user.is_authenticated %} *@
             @* <a href="{% url 'register' %}"> *@
             @*     <button class="register">REGISTER</button> *@
@@ -145,7 +146,7 @@
             <!-- Left Section -->
             <div class="footer-left">
                 <div class="footer-logo">
-                    <img src="./uploads/imagery/logo.png" alt="Pet Oasis Logo" />
+                    <img src="~/uploads/imagery/logo.png" alt="Pet Oasis Logo" />
                 </div>
                 <p class="footer-motto">
                     Care for every paw,<br />home for every soul
@@ -170,7 +171,7 @@
             <!-- Map Section -->
             <div class="footer-map">
                 <h3>Find Us</h3>
-                <img src="./uploads/imagery/map_of_bulgaria_pet_oasis.png" alt="Map of Bulgaria" class="map-image" />
+                <img src="~/uploads/imagery/map_of_bulgaria_pet_oasis.png" alt="Map of Bulgaria" class="map-image" />
                 <p class="locations">Locations in Sofia, Plovdiv, and Varna</p>
             </div>
 
@@ -191,7 +192,7 @@
                 <nav class="footer-links">
                     <h3>Quick Links</h3>
                     <div class="links-grid">
-                        <a href="{% url 'facilities' %}"><i class="fas fa-paw"></i> Facilities</a>
+                        <a href="#facilities"><i class="fas fa-paw"></i> Facilities</a>
                         <a href="#about"><i class="fas fa-paw"></i> About Us</a>
                         <a href="#blog"><i class="fas fa-paw"></i> Blog & News</a>
                         <a href="#contact"><i class="fas fa-paw"></i> Contact</a>
@@ -202,12 +203,12 @@
             </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/nav.js" asp-append-version="true"></script>
     <script src="~/js/posts.js" asp-append-version="true"></script>
     <script src="~/js/slider.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -4,74 +4,31 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="fade-in">Explore our cozy hotels and shelters</h1>
+        <p class="fade-in-delay">Hospitable and comforting environment</p>
+    </div>
+</section>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Street)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Street_Number)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Outside_View)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Street)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Street_Number)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Outside_View)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<section class="facilities">
+    <div class="facilities-grid">
+        @if (Model.Any())
+        {
+            @foreach (var facility in Model)
+            {
+                <div class="facility-card">
+                    <h3>@facility.Name</h3>
+                    <img src="@Url.Content(facility.Outside_View)" alt="@facility.Name Facility" />
+                    <a href="@Url.Action("Details", new { city = facility.City })">
+                        <button class="view-btn">View</button>
+                    </a>
+                </div>
+            }
+        }
+        else
+        {
+            <p>...</p>
+        }
+    </div>
+</section>

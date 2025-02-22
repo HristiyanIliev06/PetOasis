@@ -1,0 +1,161 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Blog&News";
+}
+
+<div class="hero-section">
+    <h1>Pet Oasis Blog & News</h1>
+    <p>Stay updated with the latest pet care tips and stories</p>
+</div>
+
+<main>
+    <div class="categories">
+        <button class="active">All Posts</button>
+        <button>Pet Care</button>
+        <button>Training</button>
+        <button>Nutrition</button>
+        <button>Success Stories</button>
+    </div>
+
+    <section class="blog-grid" id="blogPosts">
+        <!-- Page 1 Posts -->
+        <article class="blog-post featured" data-page="1">
+            <div class="post-image">
+                <img src="media/imagery/feedback/golden_retriever.jpg"
+                     alt="Pet Care Tips" />
+                <div class="category-tag">Featured</div>
+            </div>
+            <div class="post-content">
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> Dec 15, 2024</span>
+                    <span><i class="far fa-comment"></i> 12 Comments</span>
+                </div>
+                <h2>Essential Pet Care Tips for Summer</h2>
+                <p>
+                    Learn how to keep your pets safe and comfortable during hot summer
+                    days with our comprehensive guide to summer pet care...
+                </p>
+                <a href="#" class="read-more">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </article>
+
+        <article class="blog-post" data-page="1">
+            <div class="post-image">
+                <img src="media/imagery/feedback/persian.png" alt="Pet Training" />
+                <div class="category-tag">Training</div>
+            </div>
+            <div class="post-content">
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> Dec 14, 2024</span>
+                    <span><i class="far fa-comment"></i> 8 Comments</span>
+                </div>
+                <h2>Basic Training Tips for New Pet Owners</h2>
+                <p>
+                    Start your journey as a pet parent with these essential training
+                    guidelines that will help build a strong bond...
+                </p>
+                <a href="#" class="read-more">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </article>
+
+        <article class="blog-post" data-page="1">
+            <div class="post-image">
+                <img src="media/imagery/feedback/maine_coon.png" alt="Pet Nutrition" />
+                <div class="category-tag">Nutrition</div>
+            </div>
+            <div class="post-content">
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> Dec 13, 2024</span>
+                    <span><i class="far fa-comment"></i> 15 Comments</span>
+                </div>
+                <h2>Nutrition Guide for Your Pets</h2>
+                <p>
+                    Discover the best dietary practices for maintaining your pet's health
+                    and ensuring they get all the nutrients they need...
+                </p>
+                <a href="#" class="read-more">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </article>
+
+        <!-- Page 2 Posts -->
+        <article class="blog-post" data-page="2">
+            <div class="post-image">
+                <img src="media/imagery/feedback/beagle.jpg" alt="Pet Grooming" />
+                <div class="category-tag">Pet Care</div>
+            </div>
+            <div class="post-content">
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> Dec 12, 2024</span>
+                    <span><i class="far fa-comment"></i> 10 Comments</span>
+                </div>
+                <h2>Professional Grooming Tips for Pet Parents</h2>
+                <p>
+                    Learn expert grooming techniques to keep your pets looking and feeling
+                    their best all year round...
+                </p>
+                <a href="#" class="read-more">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </article>
+
+        <article class="blog-post" data-page="2">
+            <div class="post-image">
+                <img src="media/imagery/feedback/siamese.png" alt="Pet Health" />
+                <div class="category-tag">Health</div>
+            </div>
+            <div class="post-content">
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> Dec 11, 2024</span>
+                    <span><i class="far fa-comment"></i> 20 Comments</span>
+                </div>
+                <h2>Common Health Issues in Pets and Prevention</h2>
+                <p>
+                    Stay informed about common pet health issues and learn preventive
+                    measures to keep your furry friends healthy...
+                </p>
+                <a href="#" class="read-more">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </article>
+
+        <!-- Page 3 Posts -->
+        <article class="blog-post" data-page="3">
+            <div class="post-image">
+                <img src="media/imagery/feedback/labrador.jpg" alt="Pet Exercise" />
+                <div class="category-tag">Lifestyle</div>
+            </div>
+            <div class="post-content">
+                <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> Dec 10, 2024</span>
+                    <span><i class="far fa-comment"></i> 18 Comments</span>
+                </div>
+                <h2>Fun Exercise Activities for Your Pets</h2>
+                <p>
+                    Discover exciting ways to keep your pets active and engaged with these
+                    fun exercise activities...
+                </p>
+                <a href="#" class="read-more">
+                    Read More <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </article>
+    </section>
+
+    <div class="pagination">
+        <a href="#" class="prev-page"><i class="fas fa-chevron-left"></i></a>
+        <a href="#" class="page-number active" data-page="1">1</a>
+        <a href="#" class="page-number" data-page="2">2</a>
+        <a href="#" class="page-number" data-page="3">3</a>
+        <a href="#" class="next-page"><i class="fas fa-chevron-right"></i></a>
+    </div>
+</main>

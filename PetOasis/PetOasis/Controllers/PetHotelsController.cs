@@ -28,18 +28,18 @@ namespace PetOasis.Controllers
         }
 
         // GET: PetHotels/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string city)
         {
-            if (id == null)
+            if (city == null)
             {
                 return NotFound();
             }
 
             var petHotel = await _context.PetHotels
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.City == city);
             if (petHotel == null)
             {
-                return NotFound();
+                return NotFound("Such a facility does not exist");
             }
 
             return View(petHotel);

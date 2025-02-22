@@ -1,0 +1,7 @@
+C:\Users\Ерхан\Desktop\Проекти\PetOasis\PetOasis\PetOasis_Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_PetOasis_Tests
+C:\Users\Ерхан\Desktop\Проекти\PetOasis\PetOasis\PetOasis_Tests\obj\Debug\net8.0\PetOasis_Tests.csproj.AssemblyReference.cache
+C:\Users\Ерхан\Desktop\Проекти\PetOasis\PetOasis\PetOasis_Tests\obj\Debug\net8.0\PetOasis_Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ерхан\Desktop\Проекти\PetOasis\PetOasis\PetOasis_Tests\obj\Debug\net8.0\PetOasis_Tests.AssemblyInfoInputs.cache
+C:\Users\Ерхан\Desktop\Проекти\PetOasis\PetOasis\PetOasis_Tests\obj\Debug\net8.0\PetOasis_Tests.AssemblyInfo.cs
+C:\Users\Ерхан\Desktop\Проекти\PetOasis\PetOasis\PetOasis_Tests\obj\Debug\net8.0\PetOasis_Tests.csproj.CoreCompileInputs.cache
+C:\Users\Ерхан\Desktop\Проекти\PetOasis\PetOasis\PetOasis_Tests\obj\Debug\net8.0\PetOasis_Tests.sourcelink.json

@@ -1,0 +1,121 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="profile-container">
+  <!-- Profile Header -->
+  <div class="profile-header">
+    {% if profile.account_picture %}
+    <img
+      src="{{profile.account_picture.url}}"
+      alt="Profile Picture"
+      class="profile-image"
+    />
+    {% else %}
+    <img
+      src="{{profile.account_picture}}"
+      alt="Profile Picture"
+      class="profile-image"
+    />
+    {% endif %}
+    <div class="profile-welcome">
+      <h1>Hi, {{user.username}}! Welcome!</h1>
+    </div>
+    <div class="profile-actions">
+      <a
+        href="{% url 'logout' %}"
+        onclick="event.preventDefault(); document.getElementById('logout-form').submit()"
+        class="profile-link logout-link"
+        >Log out</a
+      >
+      <a href="{% url 'edit_profile' %}" class="profile-link edit-link"
+        >Edit Account</a
+      >
+      <a href="{% url 'delete_account' %}" class="profile-link delete-link"
+        >Delete Account</a
+      >
+    </div>
+  </div>
+
+  <!-- Pets Section -->
+  <h2 class="section-title">Your Pets</h2>
+  <p class="section-subtitle">Register your pets for future booking</p>
+
+  <div class="pets-grid">
+    {% for pet in pets%}
+    <div class="pet-card">
+      <!--<i class="fas fa-dog pet-icon"></i>-->
+      {% if pet.image %}
+    <img
+      src="{{pet.image.url}}"
+      alt="{{pet.species}}"
+      class="profile-image"
+    />
+    {% else %}
+    <img
+      src="{{pet.image}}"
+      alt="{{pet.species}}"
+      class="profile-image"
+    />
+    {% endif %}
+      <h3 class="pet-name">{{pet.name}}</h3>
+      <p class="pet-type">{{pet.breed}}</p>
+      <a href="{% url 'delete_pet' pk=pet.id %}" class="pet-link">
+        <button class="delete-pet">Delete</button>
+      </a>
+    </div>
+    {% endfor %}
+
+    <!-- Example Pet Card 
+        <div class="pet-card">
+          <i class="fas fa-dog pet-icon"></i>
+          <h3 class="pet-name">Max</h3>
+          <p class="pet-type">Golden Retriever</p>
+        </div>
+
+        <!-- Example Pet Card 
+        <div class="pet-card">
+          <i class="fas fa-cat pet-icon"></i>
+          <h3 class="pet-name">Luna</h3>
+          <p class="pet-type">Persian Cat</p>
+        </div>
+
+        <!-- Add Pet Card -->
+    <div class="pet-card add-pet-card">
+      <a href="{% url 'add_pet' %}" class="pet-link">
+        <i class="fas fa-plus pet-icon"></i>
+      </a>
+      <p>Add New Pet</p>
+    </div>
+  </div>
+
+  <!-- Offers Section -->
+  <h2 class="section-title">Your Offers</h2>
+  <p class="section-subtitle">
+    The loyal client receives special discounts and privileges
+  </p>
+
+  <!-- Discount Cards Section -->
+  <h3 class="section-title">Your Discount Cards</h3>
+  <div class="discount-cards">
+    <div class="discount-card">
+      <img
+        src="{% static '/imagery/offers/Карта за намаления.png' %}"
+        alt="10% Off Next Stay"
+      />
+    </div>
+    <div class="discount-card">
+      <img
+        src="{% static '/imagery/offers/Отзад.png' %}"
+        alt="Free Grooming Service"
+      />
+    </div>
+  </div>
+</div>
+
+<form
+  id="logout-form"
+  method="post"
+  action="{% url 'logout' %}"
+  style="display: none"
+>
+  {% csrf_token %}
+</form>
+{% endblock %}

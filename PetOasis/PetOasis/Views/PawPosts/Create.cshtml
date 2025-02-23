@@ -6,33 +6,33 @@
 }
 <style>
     .row {
-        display: flex;
-        justify-content: center;
-        background-color: #FFD780;
-        margin: auto;
-        padding: 1em 0;
-        border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    background-color: #FFD780;
+    margin: auto;
+    padding: 1em 0;
+    border-radius: 10px;
     }
 
     .col-md-4 {
-        width: 60%;
+    width: 60%;
     }
 
     .profile-titles {
-        text-align: center;
-        margin: 1em 0;
+    text-align: center;
+    margin: 1em 0;
     }
 
     #pt2 {
-        margin-left: 2em;
+    margin-left: 2em;
     }
 
     .back-to-list {
-        margin: auto;
+    margin: auto;
     }
     .back{
-        display:flex;
-        justify-content:center;
+    display:flex;
+    justify-content:center;
     }
 </style>
 <div class="profile-titles">
@@ -67,10 +67,12 @@
     </div>
 </div>
 
-<div class="back">
-    <a asp-action="Index">Back to List</a>
-</div>
-
+@if (User.IsInRole("Admin"))
+{
+    <div class="back">
+        <a asp-action="Index">Back to List</a>
+    </div>
+}
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

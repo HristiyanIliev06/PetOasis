@@ -76,6 +76,9 @@
     font-size: 0.9rem;
 }
 
+/*.form-group btn-primary {
+        background-color: #0db9fd;
+ }*/
 .form-group input,
 .form-group select {
     width: 100%;

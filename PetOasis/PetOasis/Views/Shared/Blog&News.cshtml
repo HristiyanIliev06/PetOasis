@@ -18,16 +18,12 @@
         <button>Nutrition</button>
         <button>Success Stories</button>
     </div>
-
-    <div class="post-image">
-        <a class="nav-link text-dark" asp-area="" asp-controller="PawPosts" asp-action="Create">
-            <div class="pet-card add-pet-card">
-                <p>PawPost</p>
-                <p>Add New PawPost</p>
-            </div>
-        </a>
-    </div>
-
+    <a class="nav-link text-dark" asp-area="" asp-controller="PawPosts" asp-action="Create">
+        <div class="pet-card add-pet-card">
+            <p>PawPost</p>
+            <p>View all PawPost</p>
+        </div>
+    </a>
     <section class="blog-grid" id="blogPosts">
         <!-- Page 1 Posts -->
         <article class="blog-post featured" data-page="1">
@@ -138,7 +134,7 @@
         </article>
 
         <!-- Page 3 Posts -->
-        <article id="3" class="blog-post" data-page="3">
+        <article class="blog-post" data-page="3">
             <div class="post-image">
                 <img src="/uploads/imagery/feedback/labrador.jpg" alt="Pet Exercise" />
                 <div class="category-tag">Lifestyle</div>
@@ -157,10 +153,7 @@
                     Read More <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-
         </article>
-
-
     </section>
 
     <div class="pagination">

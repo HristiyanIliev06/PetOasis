@@ -18,6 +18,8 @@
 }
 
 .about-hero {
+    display: flex;
+    justify-content: center;
     text-align: center;
     padding: 6rem 0;
     background: linear-gradient(135deg, #F9DF80 0%, #FFE7A0 100%);
@@ -27,10 +29,13 @@
     overflow: hidden;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
+    .about-hero .hero-cont {
+        position: relative;
+        z-index: 2;
+        background-color: rgb(255 233 166);
+        border-radius: 15px;
+        padding: 2rem;
+    }
 
 .hero-decoration {
     margin-top: 2rem;

@@ -181,7 +181,7 @@ p {
     position: relative;
     height: 80vh;
     min-height: 600px;
-    background-image: url('../imagery/title_images/title_image2.jpg');
+    background-image: url(../uploads/imagery/title_images/title_image2.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

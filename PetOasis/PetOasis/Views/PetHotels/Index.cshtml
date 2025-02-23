@@ -30,6 +30,14 @@
         {
             <p>...</p>
         }
-
+        @if (User.IsInRole("Admin"))
+         {
+        <a class="nav-link text-dark" asp-area="" asp-controller="PetHotels" asp-action="Create">
+            <div class="pet-card add-pet-card">
+                <p>Hotels</p>
+                <p>Create PetHotel</p>
+            </div>
+        </a>
+        }
     </div>
 </section>
